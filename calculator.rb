@@ -4,7 +4,7 @@ require 'time'
 require 'redis'
 
 $redis = Redis.new(host: ENV['REDIS_HOST'], port: ENV['REDIS_PORT'], password: ENV['REDIS_PASSWORD'], user: ENV['REDIS_USER'])
-$percent_diff = 0
+$percent_diff = 11
 $send_flag = false 
 
 def percent_difference(current_price, past_price)
@@ -37,6 +37,6 @@ def post_if_flag_set
   end
 end
 
-percent_difference(get_price_now, get_price_24hr) 
+# percent_difference(get_price_now, get_price_24hr) 
 set_send_flag
 post_if_flag_set  
